@@ -1,9 +1,22 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:wallet_mobile_app/constants/locales.dart';
+import 'package:wallet_mobile_app/constants/paths.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+
+  runApp(
+    EasyLocalization(
+      fallbackLocale: Locales.english,
+      path: Paths.translations,
+      supportedLocales: Locales.supportedLocales,
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -12,14 +25,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      home: const MyHomePage(
+        title: 'Flutter Demo Home Page',
+      ),
+      locale: context.locale,
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         textTheme: GoogleFonts.notoSansTextTheme(),
       ),
-      home: const MyHomePage(
-        title: 'Flutter Demo Home Page',
-      ),
+      title: 'Flutter Demo',
     );
   }
 }
@@ -47,63 +63,63 @@ class _MyHomePageState extends State<MyHomePage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    const Padding(
-                      padding: EdgeInsets.only(bottom: 16),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 16),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: EdgeInsets.symmetric(vertical: 8.0),
+                            padding: const EdgeInsets.symmetric(vertical: 8.0),
                             child: Text(
-                              'Login',
-                              style: TextStyle(
+                              tr('login'),
+                              style: const TextStyle(
                                 fontSize: 28,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
-                          Text('Please sign in to continue.'),
+                          Text(tr('please_sign_in_to_continue')),
                         ],
                       ),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 16),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 16),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: EdgeInsets.only(bottom: 8.0),
+                            padding: const EdgeInsets.only(bottom: 8.0),
                             child: Text(
-                              'Your email',
-                              style: TextStyle(
+                              tr('your_email'),
+                              style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
                           CupertinoTextField(
-                            autofillHints: [AutofillHints.email],
-                            placeholder: "Email Address",
+                            autofillHints: const [AutofillHints.email],
+                            placeholder: tr('email_address'),
                           ),
                         ],
                       ),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 16),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 16),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: EdgeInsets.only(bottom: 8.0),
+                            padding: const EdgeInsets.only(bottom: 8.0),
                             child: Text(
-                              'Your password',
-                              style: TextStyle(
+                              tr('your_password'),
+                              style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
                           CupertinoTextField(
-                            autofillHints: [AutofillHints.email],
-                            placeholder: "Password",
+                            autofillHints: const [AutofillHints.password],
+                            placeholder: tr('password'),
                             obscureText: true,
                           ),
                         ],
@@ -115,9 +131,9 @@ class _MyHomePageState extends State<MyHomePage> {
                         backgroundColor: const Color.fromARGB(255, 25, 86, 219),
                         minimumSize: const Size.fromHeight(36),
                       ),
-                      child: const Text(
-                        "Login",
-                        style: TextStyle(color: Colors.white),
+                      child: Text(
+                        tr('login'),
+                        style: const TextStyle(color: Colors.white),
                       ),
                     )
                   ],
@@ -126,12 +142,12 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("Don't have an account? "),
+                  Text('${tr('don\'t_have_an_account')} '),
                   InkWell(
                     onTap: () {},
-                    child: const Text(
-                      "Sign Up",
-                      style: TextStyle(
+                    child: Text(
+                      tr('sign_up'),
+                      style: const TextStyle(
                         decoration: TextDecoration.underline,
                         color: Colors.blue,
                       ),
