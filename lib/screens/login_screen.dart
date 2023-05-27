@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:wallet_mobile_app/widgets/text_field_widget.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -44,45 +44,19 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 16),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 8.0),
-                            child: Text(
-                              tr('your_email'),
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                          CupertinoTextField(
-                            autofillHints: const [AutofillHints.email],
-                            placeholder: tr('email_address'),
-                          ),
-                        ],
+                      child: TextFieldWidget(
+                        autofillHints: const [AutofillHints.email],
+                        label: tr('your_email'),
+                        placeholder: tr('email_address'),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 16),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 8.0),
-                            child: Text(
-                              tr('your_password'),
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                          CupertinoTextField(
-                            autofillHints: const [AutofillHints.password],
-                            placeholder: tr('password'),
-                            obscureText: true,
-                          ),
-                        ],
+                      child: TextFieldWidget(
+                        autofillHints: const [AutofillHints.password],
+                        label: tr('your_password'),
+                        obscureText: true,
+                        placeholder: tr('password'),
                       ),
                     ),
                     ElevatedButton(
