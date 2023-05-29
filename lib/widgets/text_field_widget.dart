@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class TextFieldWidget extends StatelessWidget {
   final bool obscureText;
@@ -19,20 +19,13 @@ class TextFieldWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (label != null)
-          Padding(
-            padding: const EdgeInsets.only(bottom: 8.0),
-            child: Text(
-              label!,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        CupertinoTextField(
+        TextField(
           autofillHints: autofillHints,
           obscureText: obscureText,
-          placeholder: placeholder,
+          decoration: InputDecoration(
+            border: const OutlineInputBorder(),
+            labelText: label,
+          ),
         ),
       ],
     );
