@@ -61,14 +61,14 @@ class _LoginScreenState extends State<LoginScreen> {
             Padding(
               padding: const EdgeInsets.only(top: 16),
               child: ElevatedButtonWidget(
-                text: tr('continue_upper_case'),
+                text: tr('continue').toUpperCase(),
                 onPressed: () {},
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 8),
               child: OutlinedButtonWidget(
-                text: tr('sign_up_upper_case'),
+                text: tr('sign_up').toUpperCase(),
                 onPressed: () {},
               ),
             ),
