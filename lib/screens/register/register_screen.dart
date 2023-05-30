@@ -85,7 +85,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     child: TextButtonWidget(
                       radiusSize: 10,
                       text: '← ${tr('back').toUpperCase()}',
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                     ),
                   ),
                   const SizedBox(
