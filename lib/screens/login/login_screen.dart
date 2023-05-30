@@ -1,5 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:wallet_mobile_app/constants/paths.dart';
 import 'package:wallet_mobile_app/widgets/elevated_button_widget.dart';
 import 'package:wallet_mobile_app/widgets/header_text_widget.dart';
 import 'package:wallet_mobile_app/widgets/outlined_button_widget.dart';
@@ -69,7 +71,9 @@ class _LoginScreenState extends State<LoginScreen> {
               padding: const EdgeInsets.only(top: 8),
               child: OutlinedButtonWidget(
                 text: tr('sign_up').toUpperCase(),
-                onPressed: () {},
+                onPressed: () {
+                  context.go(Paths.register);
+                },
               ),
             ),
           ],
