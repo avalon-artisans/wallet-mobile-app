@@ -1,7 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:wallet_mobile_app/widgets/elevated_button_widget.dart';
+import 'package:wallet_mobile_app/widgets/header_text_widget.dart';
 import 'package:wallet_mobile_app/widgets/outlined_button_widget.dart';
+import 'package:wallet_mobile_app/widgets/sub_header_text_widget.dart';
 import 'package:wallet_mobile_app/widgets/text_field_widget.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -29,19 +31,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: Text(
-                      tr('login'),
-                      style: const TextStyle(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    child: HeaderTextWidget(
+                      text: tr('login'),
                     ),
                   ),
-                  Text(
-                    tr('login_with_your_credentials'),
-                    style: const TextStyle(
-                      color: Colors.black54,
-                    ),
+                  SubHeaderTextWidget(
+                    text: tr('login_with_your_credentials'),
                   ),
                 ],
               ),
