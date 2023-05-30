@@ -4,11 +4,13 @@ import 'package:wallet_mobile_app/constants/dimensions.dart';
 class ElevatedButtonWidget extends StatelessWidget {
   final String text;
   final VoidCallback? onPressed;
+  final double radiusSize;
 
   const ElevatedButtonWidget({
     required this.text,
     super.key,
     this.onPressed,
+    this.radiusSize = Dimensions.buttonRadiusSize,
   });
 
   @override
@@ -21,7 +23,7 @@ class ElevatedButtonWidget extends StatelessWidget {
         ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(
-            Dimensions.buttonRadiusSize,
+            radiusSize,
           ),
         ),
       ),
