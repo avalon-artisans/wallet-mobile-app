@@ -1,11 +1,16 @@
 {
+  "back": "Back",
   "continue_upper_case": "CONTINUE",
   "don't_have_an_account": "Don't have an account?",
   "email_address": "Email Address",
+  "enter_your_details_to_register": "Enter your details to register.",
   "login": "Login",
   "login_with_your_credentials": "Login with your credentials.",
   "password": "Password",
+  "register": "Register",
+  "retype_your_password": "Retype Your Password",
   "sign_up_upper_case": "SIGN UP",
-  "your_email": "Your email",
-  "your_password": "Your password"
+  "your_email": "Your Email",
+  "your_name": "Your Name",
+  "your_password": "Your Password"
 }
